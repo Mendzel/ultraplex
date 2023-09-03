@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "./assets/colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+body {
+  margin: 0;
+  background-color: $primary;
+  font-family: "Roboto", sans-serif;
+  color: $secondary_darker;
+}
+
+.p-tabview .p-tabview-nav li {
+  width: 50% !important;
+}
+
+.p-button {
+  margin-bottom: 20px !important;
+}

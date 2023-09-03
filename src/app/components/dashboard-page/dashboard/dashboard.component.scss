@@ -1,0 +1,25 @@
+.dashboard {
+  width: 100%;
+  margin: 40px 0;
+
+  &-counters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-table {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .dashboard {
+    &-counters {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
