@@ -1,9 +1,14 @@
 <div class="screening">
   <div class="screening-date">
-    {{ screening?.start | date }} - {{ screening?.start | date }}
+    {{ screening?.start | date : "medium" }} -
+    {{ getScreeningEndTime() | date : "medium" }}
   </div>
   <div class="screening-movie">{{ screening?.movie?.name }}</div>
   <div class="screening-book">
-    <p-button label="New booking" styleClass="p-button-success"></p-button>
+    <p-button
+      label="New booking"
+      styleClass="p-button-success"
+      (click)="addNewBooking()"
+    ></p-button>
   </div>
 </div>

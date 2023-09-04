@@ -29,6 +29,7 @@
           label="Add Cinema"
           icon="pi pi-plus"
           styleClass="p-button-primary"
+          (click)="showAddCinemaDialog()"
         ></p-button>
         <app-cinemas-table [cinemas]="store.cinemas()"></app-cinemas-table>
       </p-tabPanel>
@@ -38,6 +39,7 @@
           label="Add Movie"
           icon="pi pi-plus"
           styleClass="p-button-primary"
+          (click)="showAddMovieDialog()"
         ></p-button>
         <app-movies-table [movies]="store.movies()"></app-movies-table>
       </p-tabPanel>

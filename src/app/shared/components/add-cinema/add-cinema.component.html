@@ -1,0 +1,11 @@
+<div class="add-cinema">
+  <label for="name">Name: </label>
+  <input id="name" pInputText type="text" [formControl]="name" />
+  <p-button
+    class="add-cinema-button"
+    label="Submit"
+    styleClass="p-button-primary"
+    (click)="addCinema()"
+    [disabled]="!name.valid"
+  ></p-button>
+</div>

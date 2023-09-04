@@ -1,4 +1,4 @@
 export interface Screen {
-  id: number;
+  id?: number;
   name: string;
 }

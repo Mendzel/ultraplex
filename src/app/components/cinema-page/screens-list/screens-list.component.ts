@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
 import { Screen } from 'src/app/interfaces/screen';
-import { CinemasService } from 'src/app/services/cinemas.service';
+import { ScreeningsService } from 'src/app/services/screenings.service';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -15,13 +15,13 @@ export class ScreensListComponent implements OnInit {
 
   constructor(
     private store: StoreService,
-    private cinemasService: CinemasService
+    private screeningsService: ScreeningsService
   ) {}
 
   async ngOnInit() {
     this.store.screeningsForSelectedCinema.set(
       await firstValueFrom(
-        this.cinemasService.getScreenings(this.store.selectedCinemaId())
+        this.screeningsService.getScreenings(this.store.selectedCinemaId())
       )
     );
   }

@@ -2,9 +2,13 @@ import { Screen } from './screen';
 import { Pageable, Sort } from './tableData';
 
 export interface Cinema {
-  id: number;
+  id?: number;
   name: string;
-  screens?: Screen[];
+  screens: Screen[];
+}
+
+export interface CinemaDTO {
+  name: string;
 }
 
 export interface CinemasData {

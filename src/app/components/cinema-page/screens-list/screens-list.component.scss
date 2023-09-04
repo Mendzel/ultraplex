@@ -1,4 +1,10 @@
 .screens-list {
-  width: 70%;
+  width: 90%;
   margin: auto;
+}
+
+@media screen and (min-width: 720px) {
+  .screens-list {
+    width: 70%;
+  }
 }

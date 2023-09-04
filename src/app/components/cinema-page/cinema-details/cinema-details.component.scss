@@ -1,13 +1,22 @@
+@import "./../../../../assets/colors.scss";
+
 .cinema-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  margin: 20px 0;
+  width: fit-content;
+  margin: 20px auto;
+  border: 2px solid $secondary;
+  border-radius: 10px;
+  padding: 20px;
+
+  &-description-address {
+    margin-bottom: 20px;
+  }
 
   &-photo {
     img {
-      width: 400px;
+      width: 300px;
     }
   }
 }
@@ -25,6 +34,12 @@
     &-description {
       margin-left: 50px;
       font-size: 18px;
+    }
+
+    &-photo {
+      img {
+        width: 400px;
+      }
     }
   }
 }

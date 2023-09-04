@@ -1,0 +1,9 @@
+<div>
+  <label for="name">Number of seats: </label>
+  <input id="name" pInputText type="number" [formControl]="seats" />
+  <p-button
+    label="Submit"
+    styleClass="p-button-primary"
+    (click)="addBooking()"
+  ></p-button>
+</div>

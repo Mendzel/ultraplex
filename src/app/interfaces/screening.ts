@@ -9,6 +9,11 @@ export interface Screening {
   movie: Movie;
 }
 
+export interface ScreeningDTO {
+  movieId: number;
+  startTime: string;
+}
+
 export interface ScreeningsData {
   content: Screening[];
   empty: boolean;

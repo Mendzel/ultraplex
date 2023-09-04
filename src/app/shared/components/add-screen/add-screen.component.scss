@@ -1,0 +1,36 @@
+.add-screen {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  &-selected {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  &-button {
+    margin: auto;
+    font-size: 20px;
+
+    p-button {
+      width: 200px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .add-screen {
+    width: 500px;
+  }
+}

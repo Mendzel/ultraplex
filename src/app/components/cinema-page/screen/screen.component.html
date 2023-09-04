@@ -1,4 +1,4 @@
-<p-accordionTab [header]="screen?.name">
+<p-accordionTab [header]="assignHeaderName()">
   <div class="screen">
     <div>Screenings:</div>
     <div>
@@ -6,11 +6,14 @@
         styleClass="p-button-primary"
         label="Add screening"
         icon="pi pi-plus"
+        (click)="addNewScreening()"
       ></p-button>
     </div>
   </div>
-  <app-screening
-    *ngFor="let screening of screenings; trackBy: trackByScreening"
-    [screening]="screening"
-  ></app-screening>
+  <div>
+    <app-screening
+      *ngFor="let screening of screenings; trackBy: trackByScreening"
+      [screening]="screening"
+    ></app-screening>
+  </div>
 </p-accordionTab>

@@ -1,7 +1,7 @@
 import { Pageable, Sort } from './tableData';
 
 export interface Movie {
-  id: number;
+  id?: number;
   name: string;
   runtime: number;
 }

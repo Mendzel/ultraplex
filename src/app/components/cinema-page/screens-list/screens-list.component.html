@@ -2,7 +2,7 @@
   <p-accordion>
     <app-screen
       *ngFor="let screen of screens; trackBy: screenTrack"
-      [screen]="screen"
+      [screenData]="screen"
     ></app-screen>
   </p-accordion>
 </div>

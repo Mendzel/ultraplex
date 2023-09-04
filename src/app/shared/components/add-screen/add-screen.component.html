@@ -1,0 +1,14 @@
+<div class="add-screen">
+  <div class="add-screen-selected">
+    Cinema selected: {{ config.data.cinema.name }}
+  </div>
+  <label for="name">Name: </label>
+  <input id="name" pInputText type="text" [formControl]="name" />
+  <p-button
+    class="add-screen-button"
+    label="Submit"
+    styleClass="p-button-primary"
+    (click)="addScreen()"
+    [disabled]="!name.valid"
+  ></p-button>
+</div>

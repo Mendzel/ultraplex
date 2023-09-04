@@ -1,0 +1,13 @@
+<div class="add-movie">
+  <label for="name">Name: </label>
+  <input id="name" pInputText type="text" [formControl]="name" />
+  <label for="runtime">Runtime: </label>
+  <input id="runtime" pInputText type="number" [formControl]="runtime" />
+  <p-button
+    class="add-movie-button"
+    label="Submit"
+    styleClass="p-button-primary"
+    (click)="addMovie()"
+    [disabled]="!name.valid && !runtime.valid"
+  ></p-button>
+</div>

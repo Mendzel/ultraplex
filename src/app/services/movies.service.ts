@@ -15,10 +15,10 @@ export class MoviesService {
 
   getMovies(filterParams: string = ''): Observable<Movie[]> {
     return this.http.get<MoviesData>(`${this.baseUrl}?${filterParams}`).pipe(
-      tap((moviesData) => {
-        this.store.moviesCounter = moviesData.totalElements;
-      }),
-      map((moviesData) => moviesData.content)
+      map((moviesData) => moviesData.content.filter((movie) => movie.name)), //filtering out movies without names
+      tap((movies) => {
+        this.store.moviesCounter = movies.length;
+      })
     );
   }
 

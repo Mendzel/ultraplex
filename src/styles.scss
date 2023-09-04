@@ -19,3 +19,45 @@ body {
   background-color: $secondary !important;
   border: 1px solid $primary !important;
 }
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: $secondary !important;
+  color: $primary !important;
+  border-color: $primary !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  color: $secondary_darker !important;
+  background: $primary !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: $secondary !important;
+  color: $primary !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  color: $secondary !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background: $primary !important;
+}
+
+.p-accordion .p-accordion-header .p-accordion-header-link {
+  background: $secondary !important;
+  color: $primary !important;
+  border-color: $primary !important;
+}
+
+.p-accordion
+  .p-accordion-header:not(.p-disabled)
+  .p-accordion-header-link:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+  box-shadow: none !important;
+  outline: none !important;
+}

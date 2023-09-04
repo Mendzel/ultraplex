@@ -1,7 +1,9 @@
 import { Pageable, Sort } from './tableData';
 
 export interface Booking {
-  id: number;
+  id?: number;
+  screeningId?: number;
+  seats?: number;
 }
 
 export interface BookingsData {

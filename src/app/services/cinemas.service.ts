@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, tap, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Cinema, CinemasData } from '../interfaces/cinema';
+import { Cinema, CinemaDTO, CinemasData } from '../interfaces/cinema';
 import { StoreService } from './store.service';
-import { Screening, ScreeningsData } from '../interfaces/screening';
+import { Screen } from '../interfaces/screen';
 
 @Injectable({
   providedIn: 'root',
@@ -15,25 +15,20 @@ export class CinemasService {
 
   getCinemas(filterParams: string = ''): Observable<Cinema[]> {
     return this.http.get<CinemasData>(`${this.baseUrl}?${filterParams}`).pipe(
-      tap((cinemasData) => {
-        this.store.cinemasCounter = cinemasData.totalElements;
-        this.store.setScreenCounter(cinemasData);
-      }),
-      map((cinemasData) => cinemasData.content)
+      map((cinemasData) => cinemasData.content.filter((cinema) => cinema.name)), // filtering out cinemas without names
+      tap((cinemas) => {
+        this.store.cinemasCounter = cinemas.length;
+        this.store.setScreenCounter(cinemas);
+      })
     );
   }
 
-  getScreenings(
-    id: number,
-    filterParams: string = ''
-  ): Observable<Screening[]> {
-    return this.http
-      .get<ScreeningsData>(`${this.baseUrl}/${id}/screenings?${filterParams}`)
-      .pipe(map((screeningsData) => screeningsData.content));
+  addScreenToCinema(id: number, screen: Screen) {
+    return this.http.put<Screen>(`${this.baseUrl}/${id}/screens`, screen);
   }
 
-  addCinema(cinema: Cinema): Observable<Cinema> {
-    return this.http.put<Cinema>(`${this.baseUrl}`, cinema);
+  addCinema(cinema: CinemaDTO): Observable<CinemaDTO> {
+    return this.http.put<CinemaDTO>(`${this.baseUrl}`, cinema);
   }
 
   errorHandler() {}

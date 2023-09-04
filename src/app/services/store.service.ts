@@ -1,6 +1,6 @@
 import { Injectable, effect, signal } from '@angular/core';
 
-import { Cinema, CinemasData } from '../interfaces/cinema';
+import { Cinema } from '../interfaces/cinema';
 import { Movie } from '../interfaces/movie';
 import { Screening } from '../interfaces/screening';
 
@@ -26,10 +26,10 @@ export class StoreService {
     });
   }
 
-  setScreenCounter(cinemasData: CinemasData) {
+  setScreenCounter(cinemas: Cinema[]) {
     this.screensCounter = 0;
 
-    cinemasData.content.forEach(
+    cinemas.forEach(
       (cinema) => (this.screensCounter += cinema.screens?.length || 0)
     );
   }
