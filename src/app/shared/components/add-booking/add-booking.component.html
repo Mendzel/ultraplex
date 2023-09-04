@@ -1,9 +1,22 @@
-<div>
+<div class="add-booking">
+  <div class="add-booking-selected">
+    <div>
+      <img [src]="'./assets/movie-covers/1.jpg'" alt="Movie cover" />
+    </div>
+    <div class="add-booking-selected-info">
+      <div>Movie selected: {{ config.data.screening.movie.name }}</div>
+      <div>
+        Date of screening: {{ config.data.screening.start | date : "medium" }}
+      </div>
+    </div>
+  </div>
   <label for="name">Number of seats: </label>
   <input id="name" pInputText type="number" [formControl]="seats" />
   <p-button
+    class="add-booking-button"
     label="Submit"
     styleClass="p-button-primary"
     (click)="addBooking()"
+    [disabled]="!seats.valid"
   ></p-button>
 </div>

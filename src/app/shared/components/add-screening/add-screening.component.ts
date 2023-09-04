@@ -10,12 +10,12 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./add-screening.component.scss'],
 })
 export class AddScreeningComponent {
-  movieId = new FormControl(0, Validators.required);
+  movieId = new FormControl(undefined, Validators.required);
   startTime = new FormControl(new Date(), Validators.required);
 
   constructor(
     private screeningService: ScreeningsService,
-    private config: DynamicDialogConfig,
+    public config: DynamicDialogConfig,
     public store: StoreService
   ) {}
 

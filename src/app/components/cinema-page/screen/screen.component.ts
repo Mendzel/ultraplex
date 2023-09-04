@@ -48,7 +48,7 @@ export class ScreenComponent {
         cinemaId: this.store.selectedCinemaId(),
         screen: this.screenData,
       },
-      header: 'Adding new screening',
+      header: 'Adding New Screening',
     });
   }
 }

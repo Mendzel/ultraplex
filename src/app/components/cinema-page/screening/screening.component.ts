@@ -21,7 +21,7 @@ export class ScreeningComponent {
       data: {
         screening: this.screening,
       },
-      header: 'Adding new booking',
+      header: 'Adding New Booking',
     });
   }
 

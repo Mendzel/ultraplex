@@ -4,7 +4,12 @@
   </div>
   <div class="cinema-screens">
     <app-screens-list
+      *ngIf="(store.selectedCinema?.screens)!.length > 0; else noScreens"
       [screens]="store.selectedCinema?.screens"
     ></app-screens-list>
   </div>
 </div>
+
+<ng-template #noScreens>
+  <h1 class="cinema-fallback">This cinema has no screens to display.</h1>
+</ng-template>

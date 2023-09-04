@@ -1,4 +1,39 @@
 .add-screening {
-  width: 500px;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &-selected {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+
+  &-button {
+    margin: 20px auto;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .add-screening {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+#movie {
+  width: 100%;
 }
