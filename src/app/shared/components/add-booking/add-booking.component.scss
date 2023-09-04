@@ -1,0 +1,50 @@
+.add-booking {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  &-selected {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+
+  &-button {
+    margin: auto;
+    font-size: 20px;
+
+    p-button {
+      width: 200px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .add-booking {
+    width: 600px;
+  }
+}
+
+img {
+  width: 100px;
+  height: 150px;
+  margin-right: 20px;
+}

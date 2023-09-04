@@ -1,39 +1,38 @@
 <div class="add-screening">
-  <div>
-    <label for=""></label>
-    <p-dropdown
-      [options]="store.movies()"
-      [formControl]="movieId"
-      optionLabel="name"
-      optionValue="id"
-      [filter]="true"
-      filterBy="name"
-      [showClear]="true"
-      placeholder="Select a movie"
-    >
-      <!-- <ng-template pTemplate="selectedItem">
-          <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
-              <div>{{ selectedCountry.name }}</div>
-          </div>
-      </ng-template> -->
-      <ng-template let-country pTemplate="item">
-        <div class="flex align-items-center gap-2">
-          <div>{{ country.name }}</div>
-        </div>
-      </ng-template>
-    </p-dropdown>
+  <div class="add-screening-selected">
+    <div>Screen selected: {{ config.data.screen.name }}</div>
   </div>
-  <div>
-    <label for="calendar"></label>
-    <p-calendar
-      id="calendar"
-      [formControl]="startTime"
-      [showTime]="true"
-    ></p-calendar>
-  </div>
+  <label for="movie">Movie: </label>
+  <p-dropdown
+    id="movie"
+    [options]="store.movies()"
+    [formControl]="movieId"
+    optionLabel="name"
+    optionValue="id"
+    [filter]="true"
+    filterBy="name"
+    [showClear]="true"
+    placeholder="Select a movie"
+  >
+    <ng-template let-country pTemplate="item">
+      <div class="flex align-items-center gap-2">
+        <div>{{ country.name }}</div>
+      </div>
+    </ng-template>
+  </p-dropdown>
+
+  <label for="calendar">Pick a date:</label>
+  <p-calendar
+    id="calendar"
+    [formControl]="startTime"
+    [showTime]="true"
+    [inline]="true"
+  ></p-calendar>
   <p-button
+    class="add-screening-button"
     label="Submit"
     styleClass="p-button-primary"
     (click)="addScreening()"
+    [disabled]="!movieId.valid && !startTime.valid"
   ></p-button>
 </div>

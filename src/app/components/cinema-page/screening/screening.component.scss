@@ -5,4 +5,19 @@
   padding: 10px;
   margin-bottom: 20px;
   border-bottom: 1px dashed black;
+  font-size: 12px;
+
+  &-date {
+    display: flex;
+    flex-direction: column;
+  }
+  &-movie {
+    margin: 0 10px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .screening {
+    font-size: 20px;
+  }
 }

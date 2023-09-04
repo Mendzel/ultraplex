@@ -1,5 +1,5 @@
 <p-accordionTab [header]="assignHeaderName()">
-  <div class="screen">
+  <div class="screen" *ngIf="screenings.length > 0; else noScreenings">
     <div>Screenings:</div>
     <div>
       <p-button
@@ -17,3 +17,15 @@
     ></app-screening>
   </div>
 </p-accordionTab>
+
+<ng-template #noScreenings>
+  <div class="screen-fallback">
+    <div class="screen-fallback-text">This screen has no screenings setup.</div>
+    <p-button
+      styleClass="p-button-primary"
+      label="Add one"
+      icon="pi pi-plus"
+      (click)="addNewScreening()"
+    ></p-button>
+  </div>
+</ng-template>

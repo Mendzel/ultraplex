@@ -10,11 +10,11 @@ import { BookingsService } from 'src/app/services/bookings.service';
   styleUrls: ['./add-booking.component.scss'],
 })
 export class AddBookingComponent {
-  seats = new FormControl(0, Validators.required);
+  seats = new FormControl(null, Validators.required);
 
   constructor(
     private bookingsService: BookingsService,
-    private config: DynamicDialogConfig
+    public config: DynamicDialogConfig
   ) {}
 
   addBooking() {
