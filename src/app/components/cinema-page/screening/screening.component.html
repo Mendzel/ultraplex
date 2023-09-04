@@ -1,0 +1,9 @@
+<div class="screening">
+  <div class="screening-date">
+    {{ screening?.start | date }} - {{ screening?.start | date }}
+  </div>
+  <div class="screening-movie">{{ screening?.movie?.name }}</div>
+  <div class="screening-book">
+    <p-button label="New booking" styleClass="p-button-success"></p-button>
+  </div>
+</div>

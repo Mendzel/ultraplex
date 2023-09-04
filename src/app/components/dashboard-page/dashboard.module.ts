@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CardModule } from 'primeng/card';
 import { TabViewModule } from 'primeng/tabview';
@@ -12,7 +14,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CinemasTableComponent } from './cinemas-table/cinemas-table.component';
 import { MoviesTableComponent } from './movies-table/movies-table.component';
 import { RuntimeFormatterPipe } from 'src/app/pipes/runtime-formatter.pipe';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RouterModule } from '@angular/router';
     TableModule,
     ButtonModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
   exports: [DashboardComponent],
 })

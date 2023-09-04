@@ -1,1 +1,16 @@
-<p>screen works!</p>
+<p-accordionTab [header]="screen?.name">
+  <div class="screen">
+    <div>Screenings:</div>
+    <div>
+      <p-button
+        styleClass="p-button-primary"
+        label="Add screening"
+        icon="pi pi-plus"
+      ></p-button>
+    </div>
+  </div>
+  <app-screening
+    *ngFor="let screening of screenings; trackBy: trackByScreening"
+    [screening]="screening"
+  ></app-screening>
+</p-accordionTab>

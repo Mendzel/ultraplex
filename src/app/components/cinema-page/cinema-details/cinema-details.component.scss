@@ -1,0 +1,30 @@
+.cinema-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+
+  &-photo {
+    img {
+      width: 400px;
+    }
+  }
+}
+
+.highlighted {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+@media screen and (min-width: 720px) {
+  .cinema-details {
+    justify-content: center;
+    flex-direction: row;
+
+    &-description {
+      margin-left: 50px;
+      font-size: 18px;
+    }
+  }
+}

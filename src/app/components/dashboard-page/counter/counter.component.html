@@ -2,5 +2,5 @@
   <div class="card-icon-container">
     <img class="card-icon" [src]="iconPath" [alt]="name" />
   </div>
-  <div class="card-counter">{{ counter }}</div>
+  <div class="card-counter">{{ counter || "Loading..." }}</div>
 </p-card>

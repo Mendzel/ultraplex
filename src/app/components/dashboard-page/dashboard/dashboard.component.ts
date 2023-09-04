@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Cinema } from 'src/app/interfaces/cinema';
-import { Movie } from 'src/app/interfaces/movie';
 import { BookingsService } from 'src/app/services/bookings.service';
-import { CinemasService } from 'src/app/services/cinemas.service';
-import { MoviesService } from 'src/app/services/movies.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,19 +10,14 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  cinemas$?: Observable<Cinema[]>;
-  movies$?: Observable<Movie[]>;
   numberOfBookings$?: Observable<number>;
 
   constructor(
-    public cinemasService: CinemasService,
-    public moviesService: MoviesService,
+    public store: StoreService,
     private bookingsService: BookingsService
   ) {}
 
   ngOnInit(): void {
-    this.cinemas$ = this.cinemasService.getCinemas('size=1000');
-    this.movies$ = this.moviesService.getMovies('size=1000');
     this.numberOfBookings$ = this.bookingsService.getBookingsNumber();
   }
 }

@@ -2,17 +2,17 @@
   <div class="dashboard-counters">
     <app-counter
       name="Cinemas"
-      [counter]="cinemasService.cinemasCounter"
+      [counter]="store.cinemasCounter"
       iconPath="./assets/icons/cinema.png"
     ></app-counter>
     <app-counter
       name="Screens"
-      [counter]="cinemasService.screensCounter"
+      [counter]="store.screensCounter"
       iconPath="./assets/icons/screen.png"
     ></app-counter>
     <app-counter
       name="Movies"
-      [counter]="moviesService.moviesCounter"
+      [counter]="store.moviesCounter"
       iconPath="./assets/icons/movie.png"
     ></app-counter>
     <app-counter
@@ -28,18 +28,18 @@
           class="dashboard-table-button"
           label="Add Cinema"
           icon="pi pi-plus"
-          styleClass="p-button-success"
+          styleClass="p-button-primary"
         ></p-button>
-        <app-cinemas-table [cinemas]="(cinemas$ | async)!"></app-cinemas-table>
+        <app-cinemas-table [cinemas]="store.cinemas()"></app-cinemas-table>
       </p-tabPanel>
       <p-tabPanel header="Movies">
         <p-button
           class="dashboard-table-button"
           label="Add Movie"
           icon="pi pi-plus"
-          styleClass="p-button-success"
+          styleClass="p-button-primary"
         ></p-button>
-        <app-movies-table [movies]="(movies$ | async)!"></app-movies-table>
+        <app-movies-table [movies]="store.movies()"></app-movies-table>
       </p-tabPanel>
     </p-tabView>
   </div>

@@ -5,9 +5,11 @@
   <div class="cinema-details-description">
     <div class="cinema-details-description-name">
       <span class="highlighted">Name: </span>
+      {{ cinema?.name || "Name not specified" }}
     </div>
     <div class="cinema-details-description-screens">
       <span class="highlighted">Number of screens: </span>
+      {{ cinema?.screens?.length || 0 }}
     </div>
     <div class="cinema-details-description-address">
       <span class="highlighted">Address: </span>9704 King Street, Dartford, DA40

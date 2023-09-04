@@ -15,7 +15,7 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-cinema>
-    <tr routerLink="/cinema/{{ cinema.id }}">
+    <tr routerLink="/cinema/{{ cinema.id }}" (click)="selectedCinema(cinema)">
       <td>
         <img
           class="table-photo"

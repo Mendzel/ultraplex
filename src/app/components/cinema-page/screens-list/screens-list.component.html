@@ -1,1 +1,8 @@
-<p>screens-list works!</p>
+<div class="screens-list">
+  <p-accordion>
+    <app-screen
+      *ngFor="let screen of screens; trackBy: screenTrack"
+      [screen]="screen"
+    ></app-screen>
+  </p-accordion>
+</div>

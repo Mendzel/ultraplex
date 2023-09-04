@@ -4,8 +4,33 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   background-color: $secondary;
   color: $primary;
   font-size: 30px;
+
+  a {
+    color: $primary;
+    text-decoration: none;
+  }
+
+  &-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: 50px;
+  }
+
+  &-action {
+    display: flex;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &-button {
+      margin-left: 10px;
+    }
+  }
 }
