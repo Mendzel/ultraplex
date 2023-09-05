@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Cinema } from 'src/app/interfaces/cinema';
 import { StoreService } from 'src/app/services/store.service';
 
