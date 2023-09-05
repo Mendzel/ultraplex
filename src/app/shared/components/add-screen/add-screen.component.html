@@ -6,9 +6,9 @@
   <input id="name" pInputText type="text" [formControl]="name" />
   <p-button
     class="add-screen-button"
-    label="Submit"
+    [label]="sending ? 'Sending...' : 'Submit'"
     styleClass="p-button-primary"
     (click)="addScreen()"
-    [disabled]="!name.valid"
+    [disabled]="!name.valid || sending"
   ></p-button>
 </div>

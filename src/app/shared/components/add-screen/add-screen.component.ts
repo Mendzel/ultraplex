@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { CinemasService } from 'src/app/services/cinemas.service';
 
@@ -10,14 +12,18 @@ import { CinemasService } from 'src/app/services/cinemas.service';
 })
 export class AddScreenComponent {
   name = new FormControl('', Validators.required);
+  sending = false;
 
   constructor(
     private cinemaService: CinemasService,
-    public config: DynamicDialogConfig
+    public config: DynamicDialogConfig,
+    private messageService: MessageService
   ) {}
 
   addScreen() {
-    if (this.name.value)
+    if (this.name.value) {
+      this.sending = true;
+
       this.cinemaService
         .addScreenToCinema(this.config.data.cinema.id, {
           name: this.name.value,
@@ -26,7 +32,15 @@ export class AddScreenComponent {
           next: () => {
             window.location.reload();
           },
-          error: (error) => console.log(error),
+          error: (error: HttpErrorResponse) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: `HTTP Error, Status code: ${error.status}`,
+              detail: error.error.error,
+            });
+            this.sending = false;
+          },
         });
+    }
   }
 }

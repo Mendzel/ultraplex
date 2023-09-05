@@ -30,9 +30,9 @@
   ></p-calendar>
   <p-button
     class="add-screening-button"
-    label="Submit"
+    [label]="sending ? 'Sending...' : 'Submit'"
     styleClass="p-button-primary"
     (click)="addScreening()"
-    [disabled]="!movieId.valid && !startTime.valid"
+    [disabled]="(!movieId.valid && !startTime.valid) || sending"
   ></p-button>
 </div>

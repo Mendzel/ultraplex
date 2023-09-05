@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap, map } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, tap, map, catchError, of } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Cinema, CinemaDTO, CinemasData } from '../interfaces/cinema';
 import { StoreService } from './store.service';
 import { Screen } from '../interfaces/screen';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,11 @@ import { Screen } from '../interfaces/screen';
 export class CinemasService {
   baseUrl: string = 'https://develop.hybrid.iov99.com/ultraplex/api/v1/cinemas';
 
-  constructor(private http: HttpClient, private store: StoreService) {}
+  constructor(
+    private http: HttpClient,
+    private store: StoreService,
+    private messageService: MessageService
+  ) {}
 
   getCinemas(filterParams: string = ''): Observable<Cinema[]> {
     return this.http.get<CinemasData>(`${this.baseUrl}?${filterParams}`).pipe(
@@ -19,6 +24,9 @@ export class CinemasService {
       tap((cinemas) => {
         this.store.cinemasCounter = cinemas.length;
         this.store.setScreenCounter(cinemas);
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return this.errorHandler(error);
       })
     );
   }
@@ -31,5 +39,14 @@ export class CinemasService {
     return this.http.put<CinemaDTO>(`${this.baseUrl}`, cinema);
   }
 
-  errorHandler() {}
+  errorHandler(error: HttpErrorResponse) {
+    this.messageService.add({
+      severity: 'error',
+      summary: `HTTP Error, Status code: ${error.status}`,
+      detail: error.error.error,
+    });
+    console.log(error);
+
+    return of([]);
+  }
 }

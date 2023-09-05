@@ -14,7 +14,7 @@ import { AddMovieComponent } from 'src/app/shared/components/add-movie/add-movie
   providers: [DialogService],
 })
 export class DashboardComponent {
-  numberOfBookings$?: Observable<number>;
+  numberOfBookings$?: Observable<number | never[]>;
   ref: DynamicDialogRef | undefined;
 
   constructor(

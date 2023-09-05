@@ -9,6 +9,8 @@ import { DashboardModule } from './components/dashboard-page/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CinemaModule } from './components/cinema-page/cinema.module';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +22,9 @@ import { CinemaModule } from './components/cinema-page/cinema.module';
     SharedModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ToastModule,
   ],
-  providers: [CinemasService],
+  providers: [CinemasService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

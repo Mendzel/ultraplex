@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class CounterComponent {
   @Input() iconPath?: string;
   @Input() name?: string;
-  @Input() counter?: number | null;
+  @Input() counter?: number | null | never[];
 }

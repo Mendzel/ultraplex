@@ -5,9 +5,9 @@
   <input id="runtime" pInputText type="number" [formControl]="runtime" />
   <p-button
     class="add-movie-button"
-    label="Submit"
+    [label]="sending ? 'Sending...' : 'Submit'"
     styleClass="p-button-primary"
     (click)="addMovie()"
-    [disabled]="!name.valid && !runtime.valid"
+    [disabled]="(!name.valid && !runtime.valid) || sending"
   ></p-button>
 </div>

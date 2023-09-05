@@ -14,6 +14,7 @@ import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { AddScreenComponent } from './components/add-screen/add-screen.component';
 import { AddBookingComponent } from './components/add-booking/add-booking.component';
 import { AddScreeningComponent } from './components/add-screening/add-screening.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AddScreeningComponent } from './components/add-screening/add-screening.
     AddScreenComponent,
     AddBookingComponent,
     AddScreeningComponent,
+    ErrorPageComponent,
   ],
   imports: [
     CommonModule,

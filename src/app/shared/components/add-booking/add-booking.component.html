@@ -14,9 +14,9 @@
   <input id="name" pInputText type="number" [formControl]="seats" />
   <p-button
     class="add-booking-button"
-    label="Submit"
+    [label]="sending ? 'Sending...' : 'Submit'"
     styleClass="p-button-primary"
     (click)="addBooking()"
-    [disabled]="!seats.valid"
+    [disabled]="!seats.valid || sending"
   ></p-button>
 </div>

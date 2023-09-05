@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -10,11 +12,17 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class AddMovieComponent {
   name = new FormControl('', Validators.required);
   runtime = new FormControl(0, Validators.required);
+  sending = false;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private messageService: MessageService
+  ) {}
 
   addMovie() {
-    if (this.name.value && this.runtime.value)
+    if (this.name.value && this.runtime.value) {
+      this.sending = true;
+
       this.moviesService
         .addMovie({ name: this.name.value, runtime: this.runtime.value })
         .subscribe({
@@ -23,7 +31,15 @@ export class AddMovieComponent {
             this.runtime.setValue(0);
             window.location.reload();
           },
-          error: (error) => console.log(error),
+          error: (error: HttpErrorResponse) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: `HTTP Error, Status code: ${error.status}`,
+              detail: error.error.error,
+            });
+            this.sending = false;
+          },
         });
+    }
   }
 }
