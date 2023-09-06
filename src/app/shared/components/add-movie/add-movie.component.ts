@@ -11,7 +11,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class AddMovieComponent {
   name = new FormControl('', Validators.required);
-  runtime = new FormControl(0, Validators.required);
+  runtime = new FormControl(null, Validators.required);
   sending = false;
 
   constructor(
@@ -28,7 +28,7 @@ export class AddMovieComponent {
         .subscribe({
           next: () => {
             this.name.setValue('');
-            this.runtime.setValue(0);
+            this.runtime.setValue(null);
             window.location.reload();
           },
           error: (error: HttpErrorResponse) => {
